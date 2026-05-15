@@ -5,40 +5,35 @@ import { profile } from '../../data/profile'
 export function ProfileSection() {
   return (
     <AnimatedSection
-      eyebrow="About me"
+      eyebrow="About"
       id="profile"
       subtitle={profile.intro}
-      title="I design the path between product ideas, technical delivery, and teams that ship."
+      title="I help ideas become products people can actually use."
     >
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)]">
-        <div>
-          <p className="text-lg leading-9 text-slate-700">{profile.summary}</p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {profile.focus.map((focus) => (
-              <span
-                className="rounded-full border border-[#f765ff]/30 bg-[#ffc3b2]/40 px-4 py-2 text-sm font-semibold text-[#172033]"
-                key={focus}
-              >
-                {focus}
-              </span>
-            ))}
-          </div>
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)]">
+        <div className="grid gap-5">
+          {profile.about.map((paragraph) => (
+            <p className="text-base leading-8 text-slate-300 sm:text-lg" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
           {profile.stats.map((stat) => (
             <div
-              className="rounded-[24px] border border-[#172033]/10 bg-white/75 p-5 shadow-[0_18px_48px_rgba(20,42,77,0.08)]"
+              className="border-b border-white/10 pb-5 last:border-b-0 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-5 sm:last:border-r-0 lg:border-b lg:border-r-0 lg:pb-5 lg:pr-0"
               key={stat.label}
             >
-              <p className="text-3xl font-semibold text-[#172033]">
+              <p className="text-3xl font-semibold text-white">
                 <CountUp
                   decimals={stat.decimals}
+                  prefix={stat.prefix}
                   suffix={stat.suffix}
                   target={stat.target}
                 />
               </p>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{stat.label}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-400">{stat.label}</p>
             </div>
           ))}
         </div>

@@ -1,34 +1,34 @@
 import { AnimatedSection } from '../../components/AnimatedSection'
-import { skillGroups } from '../../data/profile'
+import { capabilities } from '../../data/profile'
 
 export function SkillsSection() {
   return (
     <AnimatedSection
-      eyebrow="Toolkit"
+      eyebrow="Capabilities"
       id="skills"
-      subtitle="The tools, technical context, and product habits I use to turn ambiguous ideas into shipped features."
-      title="A product toolkit with engineering depth."
+      subtitle="The work is rarely only strategy or only engineering. I tend to sit in the overlap."
+      title="What I bring to a product team."
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        {skillGroups.map((group) => {
-          const Icon = group.icon
+      <div className="grid gap-4 md:grid-cols-3">
+        {capabilities.map((capability) => {
+          const Icon = capability.icon
 
           return (
             <section
-              className="rounded-[24px] border border-[#172033]/10 bg-white/75 p-5 shadow-[0_18px_48px_rgba(20,42,77,0.08)]"
-              key={group.title}
+              className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5"
+              key={capability.title}
             >
-              <div className="mb-5 flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-lg bg-[#ffc3b2]/45 text-[#a71faf]">
-                  <Icon className="size-5" />
-                </span>
-                <h3 className="text-lg font-semibold text-[#172033]">{group.title}</h3>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
+              <Icon className="size-6 text-[#f0c987]" />
+              <h3 className="mt-5 text-xl font-semibold text-white">
+                {capability.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-slate-400">
+                {capability.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {capability.skills.map((skill) => (
                   <span
-                    className="rounded-lg border border-[#172033]/10 bg-[#f8f3ea] px-3 py-2 text-sm text-slate-700"
+                    className="rounded-full border border-white/10 px-3 py-2 text-xs font-semibold text-slate-300"
                     key={skill}
                   >
                     {skill}

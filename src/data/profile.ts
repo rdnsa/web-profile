@@ -3,12 +3,9 @@ import {
   BrainCircuit,
   BriefcaseBusiness,
   Code2,
-  GraduationCap,
   Mail,
   MapPin,
   Phone,
-  ShieldCheck,
-  Sparkles,
   UsersRound,
 } from 'lucide-react'
 
@@ -54,12 +51,6 @@ export type Organization = {
   highlights: string[]
 }
 
-export type SkillGroup = {
-  title: string
-  icon: IconComponent
-  skills: string[]
-}
-
 export type PortfolioStat = {
   target: number
   label: string
@@ -73,9 +64,18 @@ export type Project = {
   category: string
   href: string
   image: string
+  imageClassName?: string
+  role: string
   summary: string
-  metrics: PortfolioStat[]
+  highlights: string[]
   tags: string[]
+}
+
+export type Capability = {
+  title: string
+  description: string
+  icon: IconComponent
+  skills: string[]
 }
 
 export const profile = {
@@ -85,28 +85,30 @@ export const profile = {
   location: 'South Jakarta',
   email: 'rdnsa123@gmail.com',
   phone: '085155448738',
+  avatar: '/images/WhatsApp%20Image%202025-08-11%20at%209.34.49%20AM.jpg',
   intro:
-    'I am a Project Manager with a technical background in software development.',
-  summary:
-    'I currently manage several digital projects. I am experienced in creating backlog tickets, prioritizing tasks, monitoring development progress, and communicating with stakeholders. With my technical skills, I can better understand system requirements and bridge the gap between business needs and the development team.',
+    'Project manager with an engineering background, working across product direction, team coordination, and technical delivery.',
+  tagline:
+    'I help digital products move from idea to release by keeping strategy, backlog, and engineering aligned.',
+  shortBio:
+    'My work sits between product thinking and technical execution: clarifying priorities, coordinating teams, and making sure delivery stays useful, realistic, and moving.',
+  about: [
+    'I currently manage digital products across financial news, property, and AI-focused initiatives. I enjoy turning broad business goals into clearer product decisions, backlog priorities, and release plans that teams can actually execute.',
+    'Because I started from software development, I can move comfortably between stakeholder conversations and technical discussions with engineers. That makes me useful in the messy middle where product intent often gets lost.',
+  ],
+  contactCopy:
+    'I work best on digital products that need both clearer direction and stronger delivery habits, especially when product, design, and engineering need to stay tightly connected.',
   focus: [
-    'Product roadmap',
-    'Backlog prioritization',
+    'Product direction',
+    'Backlog clarity',
     'Sprint execution',
-    'Stakeholder communication',
-    'Technical execution',
+    'Technical bridge',
   ],
   stats: [
-    {
-      target: 3.97,
-      suffix: '/4.00',
-      decimals: 2,
-      label: 'Bachelor of Information Technology',
-    },
-    { target: 50, suffix: '+', label: 'Users in usability testing' },
-    { target: 100, suffix: '+', label: 'Participants from 10+ universities' },
-    { target: 100, suffix: '%', label: 'Tuition scholarship for 4 years' },
-  ] satisfies PortfolioStat[],
+    { target: 5, suffix: '+', label: 'Product streams managed' },
+    { target: 50, suffix: '+', label: 'Users involved in testing' },
+    { target: 3, label: 'Live portfolio projects' },
+  ] as PortfolioStat[],
   contacts: [
     {
       label: 'Email',
@@ -141,6 +143,76 @@ export const profile = {
   ] satisfies SocialLink[],
 }
 
+export const projects: Project[] = [
+  {
+    title: 'IFCNews',
+    category: 'Financial news product',
+    href: 'https://ifcnews.id',
+    image: '/images/projects/ifcnews.webp',
+    imageClassName: 'scale-[1.08] object-left-top',
+    role: 'Product management and growth support',
+    summary:
+      'A financial news platform where I support product development across content discovery, market features, and search visibility.',
+    highlights: [
+      'Worked on Stocks, IPO, AI summarization, recommendation systems, SEO, Search Console, sitemap.xml, and analytics setup.',
+      'Helped connect product goals with the technical work needed to ship and improve the platform.',
+    ],
+    tags: ['AI summarization', 'Stocks', 'IPO', 'SEO'],
+  },
+  {
+    title: 'Nordpartners',
+    category: 'Property partnership platform',
+    href: 'https://nordpartners.id',
+    image: '/images/projects/nordpartners.webp',
+    role: 'Product coordination',
+    summary:
+      'A premium property partnership experience designed to present access, trust, and opportunity for investors and agency partners.',
+    highlights: [
+      'Focused on aligning stakeholder needs, presentation flow, and delivery priorities for a high-trust digital experience.',
+      'Supported a product narrative built around investor access, agency communication, and premium positioning.',
+    ],
+    tags: ['Property', 'Partnership', 'Stakeholders', 'Experience'],
+  },
+  {
+    title: "I'M LUXURY",
+    category: 'Luxury commerce',
+    href: 'https://im-luxury.yvrtz.workers.dev',
+    image: '/images/projects/im-luxury.webp',
+    role: 'Digital product concept',
+    summary:
+      'A luxury storefront concept built around curated collections, private consultation, and a more polished buying journey.',
+    highlights: [
+      'Explored how catalog structure, visual tone, and consultation flow can support premium product perception.',
+      'Created a focused commerce experience with strong brand presence and direct conversion paths.',
+    ],
+    tags: ['Commerce', 'Catalog', 'Brand', 'Consultation'],
+  },
+]
+
+export const capabilities: Capability[] = [
+  {
+    title: 'Product Direction',
+    description:
+      'I turn loose goals into clearer priorities, roadmap choices, and backlog decisions that teams can act on.',
+    icon: BriefcaseBusiness,
+    skills: ['Roadmap', 'Prioritization', 'User stories', 'Sprint reviews'],
+  },
+  {
+    title: 'Delivery Systems',
+    description:
+      'I keep work moving through sprint planning, documentation, coordination, and stakeholder communication.',
+    icon: UsersRound,
+    skills: ['Agile Scrum', 'Kanban', 'Documentation', 'QA workflow'],
+  },
+  {
+    title: 'Technical Bridge',
+    description:
+      'My engineering background helps me translate between business needs and the systems underneath them.',
+    icon: BrainCircuit,
+    skills: ['Python', 'GoLang', 'MySQL', 'CI/CD', 'Analytics'],
+  },
+]
+
 export const experiences: Experience[] = [
   {
     company: 'PT InfantAI Teknologi Nusantara',
@@ -148,13 +220,11 @@ export const experiences: Experience[] = [
     period: 'Sep 2025 - Present',
     role: 'Project Manager',
     description:
-      'PT InfantAI Teknologi Nusantara is an AI-focused startup that develops digital solutions for parenting, early education, and financial news. Its products include Infant.AI, GeniusAI, and IFCNews, with a focus on using AI to support families, children, and data-driven information services.',
+      'AI-focused startup work across financial news, parenting, education, and related digital products.',
     highlights: [
-      'Managed product roadmap, backlog prioritization, and sprint execution for IFCNews, Infant.AI, GeniusAI, Nordpartners, and Satglow Invent using Agile Scrum and Kanban.',
-      'Collaborated with stakeholders, AI engineers, QA, and developers to define requirements, create user stories, and align development goals.',
-      'Created and monitored backlog tickets, tracked project progress, coordinated sprint reviews, and maintained project documentation through Lark.',
-      'Supported feature development for IFCNews, including Stocks, IPO, AI summarization, recommendation systems, SEO optimization, Google Search Console, sitemap.xml, and Google Analytics setup.',
-      'Applied technical knowledge in Python, GoLang, MySQL, MongoDB, Railway, Cloudflare, Postman, deployment workflows, and CI/CD implementation to bridge business needs with technical execution.',
+      'Managed roadmap, backlog prioritization, and sprint execution for IFCNews, Infant.AI, GeniusAI, Nordpartners, and Satglow Invent.',
+      'Collaborated with stakeholders, AI engineers, QA, and developers to define requirements and align delivery goals.',
+      'Supported IFCNews features spanning Stocks, IPO, AI summarization, recommendations, SEO, and analytics.',
     ],
     tags: ['Agile Scrum', 'Kanban', 'AI', 'CI/CD', 'SEO'],
   },
@@ -164,12 +234,10 @@ export const experiences: Experience[] = [
     period: 'Feb 2025 - Oct 2025',
     role: 'Full Stack Engineer Intern',
     description:
-      'PT Super Pasar Rakyat Indonesia (PARI) is a BRI Group digital marketplace for agricultural commodities, focused on supporting farmers, breeders, fishermen, and micro-entrepreneurs through supply chain digitalization and wider market access.',
+      'Cross-functional internship across product coordination, development, and QA for a digital agricultural marketplace.',
     highlights: [
-      'Acted as a cross-functional intern across product management, project coordination, full stack development, and QA testing within Agile sprints.',
-      'Supported financial feature development, including TopUp, Withdrawal, and Settlement, using Laravel, MySQL, Docker, and Redis.',
-      'Managed sprint tasks, project timelines, and communication across product, design, and engineering teams.',
-      'Designed, tested, and optimized system modules through structured QA workflows, performance tuning, and user feedback analysis.',
+      'Supported TopUp, Withdrawal, and Settlement features using Laravel, MySQL, Docker, and Redis.',
+      'Worked across product, design, engineering, and QA to keep sprint tasks and timelines moving.',
     ],
     tags: ['Laravel', 'MySQL', 'Docker', 'Redis', 'QA'],
   },
@@ -179,57 +247,12 @@ export const experiences: Experience[] = [
     period: 'Jan 2024 - Dec 2024',
     role: 'IT Product & Project Manager',
     description:
-      'Moodscape is a Kemendikbudristek-funded mental health innovation project that develops an AI-powered mobile app to monitor emotional well-being using graphology, facial recognition, and machine learning.',
+      'Mental health innovation project building an AI-powered mobile app for emotional well-being monitoring.',
     highlights: [
-      'Led product roadmap planning, feature prioritization, backlog management, and sprint execution using Agile Scrum.',
-      'Collaborated with developers and UI/UX designers to build AI-based mood analysis features using machine learning.',
-      'Conducted usability testing with 50+ users to gather insights and improve product experience.',
-      'Used Jira, Confluence, and Notion to track project progress, document requirements, and align cross-functional teams.',
-      'Secured full project funding from Kemendikbudristek and achieved national recognition in mental health technology innovation.',
+      'Led roadmap planning, feature prioritization, backlog management, and sprint execution.',
+      'Conducted usability testing with 50+ users and collaborated on AI-based mood analysis features.',
     ],
     tags: ['Product Roadmap', 'Machine Learning', 'Jira', 'Confluence', 'Notion'],
-  },
-]
-
-export const projects: Project[] = [
-  {
-    title: 'IFCNews',
-    category: 'Financial news product',
-    href: 'https://ifcnews.id',
-    image: '/images/roadmap-dashboard.svg',
-    summary:
-      'Indonesian Financial Channel News product work covering Stocks, IPO, AI summarization, recommendation systems, SEO optimization, Google Search Console, sitemap.xml, and Google Analytics setup.',
-    metrics: [
-      { target: 5, suffix: '+', label: 'Product modules' },
-      { target: 100, suffix: '%', label: 'SEO workflow setup' },
-    ],
-    tags: ['AI summarization', 'Stocks', 'IPO', 'SEO', 'Analytics'],
-  },
-  {
-    title: 'Nordpartners',
-    category: 'Property partnership platform',
-    href: 'https://nordpartners.id',
-    image: '/images/leadership-network.svg',
-    summary:
-      'Melbourne property partnership experience designed for strategic access, investor and agency communication, and premium ecosystem presentation.',
-    metrics: [
-      { target: 3, suffix: '+', label: 'Audience groups' },
-      { target: 1, label: 'Strategic access flow' },
-    ],
-    tags: ['Property', 'Partnership', 'Investor', 'Agency'],
-  },
-  {
-    title: "I'M LUXURY",
-    category: 'Luxury storefront',
-    href: 'https://im-luxury.yvrtz.workers.dev',
-    image: '/images/mobile-research.svg',
-    summary:
-      'Luxury Within Reach storefront for curated premium bags, private guidance, personal shopping, product collections, and direct consultation flow.',
-    metrics: [
-      { target: 5, decimals: 1, suffix: '/5', label: 'Client rating visual' },
-      { target: 6, label: 'Featured products' },
-    ],
-    tags: ['Luxury commerce', 'Catalog', 'WhatsApp flow', 'Brand experience'],
   },
 ]
 
@@ -240,11 +263,8 @@ export const education: Education = {
   degree: 'Bachelor of Information Technology, 3.97/4.00',
   highlights: [
     'Full-Ride Scholarship Awardee, received a 100% tuition scholarship for 4 years based on academic performance and leadership merit.',
-    '1st Place Winner, Cyber Entrepreneur Product Innovation Competition, developed a Raspberry Pi and Nextcloud-based private cloud storage solution for SMEs and households.',
-    'Published research on private cloud storage implementation using OwnCloud and Linux Ubuntu, available on Google Scholar.',
-    'Published research on MSME growth prediction in West Java using linear regression, available on Google Scholar.',
-    'Designed an IoT-based environmental monitoring system using NodeMCU, gas sensors, and climate sensors for real-time hazard monitoring.',
-    'Speaker at Data Security Awareness Program, delivering cybersecurity awareness material to 50+ participants.',
+    '1st Place Winner, Cyber Entrepreneur Product Innovation Competition.',
+    'Published research on private cloud storage implementation using OwnCloud and Linux Ubuntu.',
   ],
 }
 
@@ -255,11 +275,10 @@ export const organizations: Organization[] = [
     period: 'Jul 2023 - Present',
     role: 'President HIMA',
     description:
-      'Served as President of the Information Technology Student Association, leading academic and social development programs.',
+      'Led academic, social, and professional development programs for the Information Technology Student Association.',
     highlights: [
-      "Organized company visits to XL Axiata and Allo Bank to expand members' industry insights.",
-      'Led multiple community service initiatives focusing on digital literacy and cybersecurity awareness.',
-      'Fostered collaboration among members through workshops, internal projects, and professional networking events.',
+      'Organized company visits to XL Axiata and Allo Bank.',
+      'Led community initiatives around digital literacy and cybersecurity awareness.',
     ],
   },
   {
@@ -268,96 +287,10 @@ export const organizations: Organization[] = [
     period: 'Aug 2023 - Jan 2024',
     role: 'IT Infrastructure',
     description:
-      'Decompe 3.0 is a national-scale UI/UX design competition organized by Cyber University, aiming to encourage innovation in digital product design and user experience.',
+      'Supported the technical operation of a national-scale UI/UX design competition.',
     highlights: [
-      'Managed IT infrastructure setup and system operations for a national competition involving 100+ participants from 10+ universities.',
-      'Coordinated with cross-functional teams to ensure seamless online and offline event execution.',
-      'Supervised technical logistics and system configuration, ensuring 100% uptime during presentations and judging sessions.',
-      'Designed and maintained event registration and data management systems, streamlining participant verification by 40%.',
-      'Provided on-site and remote technical support, resolving system issues within an average of 5 minutes per report.',
+      'Managed infrastructure for 100+ participants from 10+ universities.',
+      'Maintained reliable event operations across registration, judging, and support.',
     ],
-  },
-]
-
-export const skillGroups: SkillGroup[] = [
-  {
-    title: 'Product & Project',
-    icon: BriefcaseBusiness,
-    skills: [
-      'Product roadmap',
-      'Backlog prioritization',
-      'Sprint execution',
-      'Agile Scrum',
-      'Kanban',
-      'User stories',
-      'Sprint reviews',
-      'Project documentation',
-      'Stakeholder communication',
-      'QA workflows',
-    ],
-  },
-  {
-    title: 'Technical Stack',
-    icon: Code2,
-    skills: [
-      'Python',
-      'GoLang',
-      'MySQL',
-      'MongoDB',
-      'Laravel',
-      'Docker',
-      'Redis',
-      'Railway',
-      'Cloudflare',
-      'Postman',
-      'CI/CD implementation',
-      'Deployment workflows',
-    ],
-  },
-  {
-    title: 'AI & Product Growth',
-    icon: BrainCircuit,
-    skills: [
-      'AI summarization',
-      'Recommendation systems',
-      'Machine learning',
-      'SEO optimization',
-      'Google Search Console',
-      'sitemap.xml',
-      'Google Analytics setup',
-      'Performance tuning',
-      'User feedback analysis',
-    ],
-  },
-  {
-    title: 'Certifications & Learning',
-    icon: ShieldCheck,
-    skills: [
-      'Web Development (Front End) - Dibimbing.id',
-      'Data Science - DQLab',
-      'Bootcamp Product Management - MySkill',
-      'Intro to UX Research - MySkill',
-      'Data Science - Dicoding',
-      'Cyber Security Awareness Profesional Certification',
-      'Structured Query Language Intermediate - HackerRank',
-    ],
-  },
-]
-
-export const signaturePoints = [
-  {
-    title: 'AI-focused startup delivery',
-    detail: 'Infant.AI, GeniusAI, IFCNews, Nordpartners, and Satglow Invent.',
-    icon: Sparkles,
-  },
-  {
-    title: 'Cross-functional bridge',
-    detail: 'Stakeholders, AI engineers, QA, developers, product, and design.',
-    icon: UsersRound,
-  },
-  {
-    title: 'Academic foundation',
-    detail: 'Bachelor of Information Technology with 3.97/4.00 GPA.',
-    icon: GraduationCap,
   },
 ]

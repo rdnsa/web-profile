@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Menu, Sparkles, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { profile } from '../data/profile'
 
 const navItems = [
-  { label: 'About me', href: '#profile' },
+  { label: 'About', href: '#profile' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Visuals', href: '#visuals' },
+  { label: 'Capabilities', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Journey', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -44,38 +43,29 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-4">
-      <nav className="mx-auto flex h-[76px] w-full max-w-[1500px] items-center justify-between rounded-[26px] border border-white/20 bg-[#142a4d]/88 px-4 shadow-[0_22px_60px_rgba(20,42,77,0.24)] backdrop-blur-2xl sm:px-5">
+    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between rounded-[22px] border border-white/10 bg-[#0b0b14]/82 px-4 shadow-[0_22px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl sm:px-5">
         <a
-          className="flex min-w-0 items-center gap-3 text-sm font-semibold text-white"
+          className="min-w-0 text-sm font-semibold text-white"
           href="#home"
           onClick={() => setIsOpen(false)}
         >
-          <span className="relative grid size-11 shrink-0 place-items-center overflow-hidden rounded-[18px] border border-white/15 bg-white/10">
-            <span className="absolute left-3 top-3 h-1 w-6 rounded-full bg-[#ffc3b2]/90" />
-            <span className="absolute bottom-3 left-5 h-6 w-1.5 rounded-full bg-white/80" />
-            <Sparkles className="size-5 text-[#ffc3b2]" />
-          </span>
-          <span className="grid min-w-0">
-            <span className="truncate text-base font-bold tracking-[0.08em]">
-              Raden Issa
-            </span>
-            <span className="hidden truncate text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-300 sm:block">
-              Strategic product partner
-            </span>
+          <span className="block truncate text-base">{profile.name}</span>
+          <span className="hidden truncate text-xs text-slate-400 sm:block">
+            {profile.role}
           </span>
         </a>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
             const isActive = activeId === item.href.slice(1)
 
             return (
               <a
-                className={`rounded-[20px] px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#f765ff] focus:ring-offset-2 focus:ring-offset-[#142a4d] ${
+                className={`rounded-[18px] px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#0b0b14] ${
                   isActive
-                    ? 'bg-white text-[#142a4d] shadow-[0_1px_0_rgba(255,255,255,0.16)_inset]'
-                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                    ? 'bg-white text-[#090910]'
+                    : 'text-slate-300 hover:bg-white/8 hover:text-white'
                 }`}
                 href={item.href}
                 key={item.href}
@@ -86,15 +76,17 @@ export function SiteHeader() {
           })}
         </div>
 
-        <div className="hidden items-center rounded-[26px] border border-white/15 bg-white/10 p-1 text-xs font-bold text-slate-300 sm:flex">
-          <span className="rounded-[22px] bg-white px-4 py-3 text-[#142a4d]">EN</span>
-          <span className="px-4 py-3">ID</span>
-        </div>
+        <a
+          className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#f0c987] hover:text-[#f0c987] sm:inline-flex"
+          href="#contact"
+        >
+          Let&apos;s talk
+        </a>
 
         <button
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
-          className="grid size-11 place-items-center rounded-[18px] border border-white/15 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#f765ff] focus:ring-offset-2 focus:ring-offset-[#142a4d] lg:hidden"
+          className="grid size-11 place-items-center rounded-[18px] border border-white/15 text-white transition hover:bg-white/8 focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#0b0b14] lg:hidden"
           onClick={() => setIsOpen((current) => !current)}
           type="button"
         >
@@ -104,7 +96,7 @@ export function SiteHeader() {
 
       {isOpen ? (
         <motion.div
-          className="mx-auto mt-2 max-w-[1500px] rounded-[22px] border border-white/20 bg-[#142a4d]/92 p-3 shadow-2xl shadow-[#142a4d]/20 backdrop-blur-2xl lg:hidden"
+          className="mx-auto mt-2 max-w-7xl rounded-[22px] border border-white/10 bg-[#0b0b14]/95 p-3 shadow-2xl shadow-black/30 backdrop-blur-2xl lg:hidden"
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2 }}
@@ -117,8 +109,8 @@ export function SiteHeader() {
                 <a
                   className={`rounded-[18px] px-3 py-3 text-sm font-semibold transition ${
                     isActive
-                      ? 'bg-white text-[#142a4d]'
-                      : 'text-slate-100 hover:bg-white/10'
+                      ? 'bg-white text-[#090910]'
+                      : 'text-slate-100 hover:bg-white/8'
                   }`}
                   href={item.href}
                   key={item.href}

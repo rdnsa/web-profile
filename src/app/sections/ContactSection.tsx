@@ -18,22 +18,20 @@ export function ContactSection() {
       className="pb-20 lg:pb-28"
       eyebrow="Contact"
       id="contact"
-      subtitle="Available through email, phone, LinkedIn, and GitHub from the CV contact section."
-      title="Let us build digital products with clear product direction and technical execution."
+      subtitle="Open to product, project, and delivery conversations."
+      title="Let&apos;s build the next product with sharper direction and calmer execution."
     >
       <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)]">
-        <div className="rounded-[28px] border border-[#f765ff]/25 bg-[#ffc3b2]/35 p-5 shadow-[0_24px_70px_rgba(247,101,255,0.11)] sm:p-7">
-          <Send className="mb-6 size-8 text-[#a71faf]" />
-          <p className="text-2xl font-semibold leading-snug text-[#172033]">
-            {profile.name}
+        <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-5 sm:p-7">
+          <Send className="mb-6 size-8 text-[#f0c987]" />
+          <p className="text-2xl font-semibold leading-snug text-white">
+            {profile.fullName}
           </p>
-          <p className="mt-4 text-base leading-8 text-slate-700">
-            {profile.role} with a technical background in software development,
-            creating backlog tickets, prioritizing tasks, monitoring development
-            progress, and communicating with stakeholders.
+          <p className="mt-4 text-base leading-8 text-slate-300">
+            {profile.contactCopy}
           </p>
           <button
-            className="mt-6 inline-flex min-w-40 items-center justify-center gap-2 rounded-lg bg-[#142a4d] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#a71faf] focus:outline-none focus:ring-2 focus:ring-[#f765ff] focus:ring-offset-2 focus:ring-offset-[#ffc3b2]"
+            className="mt-6 inline-flex min-w-40 items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-[#090910] transition hover:bg-[#f0c987] focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#07070d]"
             onClick={handleCopyEmail}
             type="button"
           >
@@ -48,12 +46,12 @@ export function ContactSection() {
 
             return (
               <ExternalLink
-                className="justify-between px-5 py-4"
+                className="justify-between rounded-[22px] px-5 py-4"
                 href={contact.href}
                 key={contact.href}
               >
                 <span className="flex items-center gap-3">
-                  <Icon className="size-5 text-[#a71faf]" />
+                  <Icon className="size-5 text-[#f0c987]" />
                   <span className="grid gap-1 text-left">
                     <span className="text-xs uppercase tracking-[0.18em] text-slate-500">
                       {contact.label}
@@ -71,7 +69,7 @@ export function ContactSection() {
 
               return (
                 <ExternalLink className="flex-1" href={social.href} key={social.href}>
-                  <Icon className="size-5 text-[#a71faf]" />
+                  <Icon className="size-5 text-[#f0c987]" />
                   {social.label}
                 </ExternalLink>
               )

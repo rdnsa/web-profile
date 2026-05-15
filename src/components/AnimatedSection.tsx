@@ -28,14 +28,14 @@ export function AnimatedSection({
       viewport={{ once: true, margin: '-120px' }}
     >
       <div className="mb-8 max-w-3xl lg:mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-[#a71faf]">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-[#f0c987]">
           {eyebrow}
         </p>
-        <h2 className="text-3xl font-semibold text-[#172033] sm:text-4xl">
+        <h2 className="text-3xl font-semibold text-white sm:text-4xl">
           {title}
         </h2>
         {subtitle ? (
-          <p className="mt-4 text-base leading-8 text-slate-600">{subtitle}</p>
+          <p className="mt-4 text-base leading-8 text-slate-400">{subtitle}</p>
         ) : null}
       </div>
       {children}
