@@ -1,0 +1,22 @@
+<svg width="960" height="660" viewBox="0 0 960 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="660" rx="48" fill="#FFF0EA"/>
+  <rect x="78" y="78" width="804" height="504" rx="42" fill="#FFFFFF"/>
+  <rect x="124" y="126" width="292" height="388" rx="34" fill="#142A4D"/>
+  <rect x="474" y="126" width="330" height="170" rx="34" fill="#F6F0E6"/>
+  <rect x="474" y="344" width="330" height="170" rx="34" fill="#F6F0E6"/>
+  <circle cx="270" cy="292" r="104" fill="#F765FF"/>
+  <circle cx="270" cy="292" r="72" fill="#FFC3B2"/>
+  <path d="M218 296C224 250 260 232 302 250C340 267 354 310 328 343C298 381 232 360 218 296Z" fill="#F8F3EA"/>
+  <path d="M248 279H296M234 314H310M260 344H286" stroke="#142A4D" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="196" cy="208" r="18" fill="#F765FF"/>
+  <circle cx="344" cy="208" r="18" fill="#FCD34D"/>
+  <circle cx="196" cy="376" r="18" fill="#14B8A6"/>
+  <circle cx="344" cy="376" r="18" fill="#F97316"/>
+  <path d="M214 219L246 252M326 219L296 252M214 365L246 334M326 365L296 334" stroke="#FFC3B2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="522" y="174" width="188" height="18" rx="9" fill="#F765FF"/>
+  <rect x="522" y="216" width="232" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="522" y="252" width="156" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="522" y="392" width="222" height="18" rx="9" fill="#0F766E"/>
+  <rect x="522" y="434" width="178" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="522" y="470" width="236" height="18" rx="9" fill="#CBD5E1"/>
+</svg>

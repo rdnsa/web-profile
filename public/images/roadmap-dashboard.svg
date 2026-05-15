@@ -1,0 +1,28 @@
+<svg width="960" height="660" viewBox="0 0 960 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="660" rx="48" fill="#F8F3EA"/>
+  <rect x="72" y="74" width="816" height="512" rx="36" fill="#17365F"/>
+  <rect x="108" y="112" width="744" height="68" rx="24" fill="#FFFFFF" fill-opacity=".12"/>
+  <circle cx="150" cy="146" r="13" fill="#FFC3B2"/>
+  <circle cx="188" cy="146" r="13" fill="#F765FF"/>
+  <circle cx="226" cy="146" r="13" fill="#FCD34D"/>
+  <rect x="612" y="128" width="198" height="36" rx="18" fill="#FFFFFF" fill-opacity=".18"/>
+  <rect x="112" y="218" width="222" height="294" rx="28" fill="#FFFFFF" fill-opacity=".94"/>
+  <rect x="374" y="218" width="222" height="294" rx="28" fill="#FFFFFF" fill-opacity=".94"/>
+  <rect x="636" y="218" width="180" height="294" rx="28" fill="#FFFFFF" fill-opacity=".94"/>
+  <rect x="144" y="250" width="116" height="16" rx="8" fill="#F765FF"/>
+  <rect x="144" y="292" width="156" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="144" y="330" width="118" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="144" y="386" width="156" height="72" rx="18" fill="#FFE5DC"/>
+  <path d="M168 423H282" stroke="#F765FF" stroke-width="9" stroke-linecap="round"/>
+  <rect x="406" y="250" width="118" height="16" rx="8" fill="#0F766E"/>
+  <rect x="406" y="292" width="146" height="18" rx="9" fill="#CBD5E1"/>
+  <rect x="406" y="330" width="104" height="18" rx="9" fill="#CBD5E1"/>
+  <path d="M418 442C448 388 474 426 500 378C520 342 548 370 566 320" stroke="#14B8A6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="418" cy="442" r="13" fill="#14B8A6"/>
+  <circle cx="500" cy="378" r="13" fill="#14B8A6"/>
+  <circle cx="566" cy="320" r="13" fill="#14B8A6"/>
+  <rect x="668" y="250" width="92" height="16" rx="8" fill="#D97706"/>
+  <circle cx="724" cy="368" r="72" fill="#FEF3C7"/>
+  <path d="M724 310V368L768 404" stroke="#D97706" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 548H818" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="16" stroke-linecap="round"/>
+</svg>
