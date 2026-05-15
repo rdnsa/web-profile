@@ -8,8 +8,8 @@ export function ProjectsSection() {
     <AnimatedSection
       eyebrow="Projects"
       id="projects"
-      subtitle="Three live products across financial news, property, and luxury commerce."
-      title="Selected work that shows how I think about digital products."
+      subtitle="Three live projects across financial news, property, and luxury commerce."
+      title="Selected work that shows how I manage digital projects."
     >
       <div className="grid gap-8">
         {projects.map((project, index) => (

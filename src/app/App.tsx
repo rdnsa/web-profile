@@ -32,7 +32,7 @@ export function App() {
         <ContactSection />
       </main>
       <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-slate-400">
-        <p>{profile.fullName} - product direction with technical depth.</p>
+        <p>{profile.fullName} - project delivery with technical depth.</p>
       </footer>
     </div>
   )

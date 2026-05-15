@@ -7,7 +7,7 @@ export function SkillsSection() {
       eyebrow="Capabilities"
       id="skills"
       subtitle="The work is rarely only strategy or only engineering. I tend to sit in the overlap."
-      title="What I bring to a product team."
+      title="What I bring to a project team."
     >
       <div className="grid gap-4 md:grid-cols-3">
         {capabilities.map((capability) => {

@@ -87,25 +87,25 @@ export const profile = {
   phone: '085155448738',
   avatar: '/images/WhatsApp%20Image%202025-08-11%20at%209.34.49%20AM.jpg',
   intro:
-    'Project manager with an engineering background, working across product direction, team coordination, and technical delivery.',
+    'Project manager with an engineering background, working across planning, team coordination, and technical delivery.',
   tagline:
-    'I help digital products move from idea to release by keeping strategy, backlog, and engineering aligned.',
+    'I help digital projects move from idea to release by keeping scope, backlog, timelines, and engineering aligned.',
   shortBio:
-    'My work sits between product thinking and technical execution: clarifying priorities, coordinating teams, and making sure delivery stays useful, realistic, and moving.',
+    'My work sits between project planning and technical execution: clarifying priorities, coordinating teams, and making sure delivery stays realistic, organized, and moving.',
   about: [
-    'I currently manage digital products across financial news, property, and AI-focused initiatives. I enjoy turning broad business goals into clearer product decisions, backlog priorities, and release plans that teams can actually execute.',
-    'Because I started from software development, I can move comfortably between stakeholder conversations and technical discussions with engineers. That makes me useful in the messy middle where product intent often gets lost.',
+    'I currently manage digital projects across financial news, property, and AI-focused initiatives. I enjoy turning broad business goals into clearer scopes, backlog priorities, timelines, and release plans that teams can actually execute.',
+    'Because I started from software development, I can move comfortably between stakeholder conversations and technical discussions with engineers. That helps me keep delivery clear when requirements, timelines, and implementation details begin to drift apart.',
   ],
   contactCopy:
-    'I work best on digital products that need both clearer direction and stronger delivery habits, especially when product, design, and engineering need to stay tightly connected.',
+    'I work best on digital projects that need clearer planning, stronger coordination, and steadier delivery habits, especially when stakeholders, design, and engineering need to stay tightly connected.',
   focus: [
-    'Product direction',
-    'Backlog clarity',
+    'Project planning',
+    'Backlog control',
     'Sprint execution',
-    'Technical bridge',
+    'Stakeholder alignment',
   ],
   stats: [
-    { target: 5, suffix: '+', label: 'Product streams managed' },
+    { target: 5, suffix: '+', label: 'Project streams managed' },
     { target: 50, suffix: '+', label: 'Users involved in testing' },
     { target: 3, label: 'Live portfolio projects' },
   ] as PortfolioStat[],
@@ -146,16 +146,16 @@ export const profile = {
 export const projects: Project[] = [
   {
     title: 'IFCNews',
-    category: 'Financial news product',
+    category: 'Financial news project',
     href: 'https://ifcnews.id',
     image: '/images/projects/ifcnews.webp',
     imageClassName: 'scale-[1.08] object-left-top',
-    role: 'Product management and growth support',
+    role: 'Project management and delivery support',
     summary:
-      'A financial news platform where I support product development across content discovery, market features, and search visibility.',
+      'A financial news platform where I support project delivery across content discovery, market features, and search visibility.',
     highlights: [
       'Worked on Stocks, IPO, AI summarization, recommendation systems, SEO, Search Console, sitemap.xml, and analytics setup.',
-      'Helped connect product goals with the technical work needed to ship and improve the platform.',
+      'Helped connect project goals with the technical work needed to ship and improve the platform.',
     ],
     tags: ['AI summarization', 'Stocks', 'IPO', 'SEO'],
   },
@@ -164,12 +164,12 @@ export const projects: Project[] = [
     category: 'Property partnership platform',
     href: 'https://nordpartners.id',
     image: '/images/projects/nordpartners.webp',
-    role: 'Product coordination',
+    role: 'Project coordination',
     summary:
       'A premium property partnership experience designed to present access, trust, and opportunity for investors and agency partners.',
     highlights: [
       'Focused on aligning stakeholder needs, presentation flow, and delivery priorities for a high-trust digital experience.',
-      'Supported a product narrative built around investor access, agency communication, and premium positioning.',
+      'Supported a project narrative built around investor access, agency communication, and premium positioning.',
     ],
     tags: ['Property', 'Partnership', 'Stakeholders', 'Experience'],
   },
@@ -178,11 +178,11 @@ export const projects: Project[] = [
     category: 'Luxury commerce',
     href: 'https://im-luxury.yvrtz.workers.dev',
     image: '/images/projects/im-luxury.webp',
-    role: 'Digital product concept',
+    role: 'Digital project concept',
     summary:
       'A luxury storefront concept built around curated collections, private consultation, and a more polished buying journey.',
     highlights: [
-      'Explored how catalog structure, visual tone, and consultation flow can support premium product perception.',
+      'Explored how catalog structure, visual tone, and consultation flow can support premium brand perception.',
       'Created a focused commerce experience with strong brand presence and direct conversion paths.',
     ],
     tags: ['Commerce', 'Catalog', 'Brand', 'Consultation'],
@@ -191,9 +191,9 @@ export const projects: Project[] = [
 
 export const capabilities: Capability[] = [
   {
-    title: 'Product Direction',
+    title: 'Project Planning',
     description:
-      'I turn loose goals into clearer priorities, roadmap choices, and backlog decisions that teams can act on.',
+      'I turn loose goals into clearer scopes, priorities, timelines, and backlog decisions that teams can act on.',
     icon: BriefcaseBusiness,
     skills: ['Roadmap', 'Prioritization', 'User stories', 'Sprint reviews'],
   },
@@ -237,7 +237,7 @@ export const experiences: Experience[] = [
       'Cross-functional internship across product coordination, development, and QA for a digital agricultural marketplace.',
     highlights: [
       'Supported TopUp, Withdrawal, and Settlement features using Laravel, MySQL, Docker, and Redis.',
-      'Worked across product, design, engineering, and QA to keep sprint tasks and timelines moving.',
+      'Worked across product, design, engineering, and QA to keep sprint tasks, coordination, and timelines moving.',
     ],
     tags: ['Laravel', 'MySQL', 'Docker', 'Redis', 'QA'],
   },

@@ -60,9 +60,9 @@ export function HeroSection() {
         transition={{ duration: 0.7, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
       >
         <div>
-          <p className="text-lg font-medium text-[#a78bfa]">Strategic</p>
+          <p className="text-lg font-medium text-[#a78bfa]">Delivery-focused</p>
           <h2 className="mt-2 text-3xl font-semibold leading-tight text-white sm:text-4xl">
-            Product Manager
+            Project Manager
           </h2>
         </div>
 

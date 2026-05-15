@@ -8,7 +8,7 @@ export function ProfileSection() {
       eyebrow="About"
       id="profile"
       subtitle={profile.intro}
-      title="I help ideas become products people can actually use."
+      title="I help digital projects move with clearer plans and steadier execution."
     >
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)]">
         <div className="grid gap-5">

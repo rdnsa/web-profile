@@ -48,7 +48,10 @@ export function SiteHeader() {
         <a
           className="min-w-0 text-sm font-semibold text-white"
           href="#home"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setActiveId('profile')
+            setIsOpen(false)
+          }}
         >
           <span className="block truncate text-base">{profile.name}</span>
           <span className="hidden truncate text-xs text-slate-400 sm:block">
@@ -69,6 +72,7 @@ export function SiteHeader() {
                 }`}
                 href={item.href}
                 key={item.href}
+                onClick={() => setActiveId(item.href.slice(1))}
               >
                 {item.label}
               </a>
@@ -79,6 +83,7 @@ export function SiteHeader() {
         <a
           className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#f0c987] hover:text-[#f0c987] sm:inline-flex"
           href="#contact"
+          onClick={() => setActiveId('contact')}
         >
           Let&apos;s talk
         </a>
@@ -114,7 +119,10 @@ export function SiteHeader() {
                   }`}
                   href={item.href}
                   key={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setActiveId(item.href.slice(1))
+                    setIsOpen(false)
+                  }}
                 >
                   {item.label}
                 </a>

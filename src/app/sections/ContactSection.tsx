@@ -18,8 +18,8 @@ export function ContactSection() {
       className="pb-20 lg:pb-28"
       eyebrow="Contact"
       id="contact"
-      subtitle="Open to product, project, and delivery conversations."
-      title="Let&apos;s build the next product with sharper direction and calmer execution."
+      subtitle="Open to project management, delivery, and coordination conversations."
+      title="Let&apos;s move the next digital project with sharper planning and calmer execution."
     >
       <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)]">
         <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-5 sm:p-7">
