@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import { capabilities } from '../../data/profile'
 
@@ -15,7 +15,7 @@ export function SkillsSection() {
           const Icon = capability.icon
 
           return (
-            <motion.section
+            <m.section
               className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5"
               initial={{ opacity: 0, y: 22 }}
               key={capability.title}
@@ -41,7 +41,7 @@ export function SkillsSection() {
                   </span>
                 ))}
               </div>
-            </motion.section>
+            </m.section>
           )
         })}
       </div>

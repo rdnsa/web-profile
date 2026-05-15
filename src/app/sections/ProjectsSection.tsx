@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import { projects } from '../../data/profile'
 
@@ -13,7 +13,7 @@ export function ProjectsSection() {
     >
       <div className="grid gap-6 sm:gap-8">
         {projects.map((project, index) => (
-          <motion.article
+          <m.article
             className="grid gap-5 rounded-[24px] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] lg:items-center lg:p-6"
             initial="hidden"
             key={project.href}
@@ -71,7 +71,7 @@ export function ProjectsSection() {
               </div>
             </div>
 
-            <motion.div
+            <m.div
               className={`overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] ${
                 index % 2 === 1 ? 'lg:order-1' : ''
               }`}
@@ -94,11 +94,12 @@ export function ProjectsSection() {
               <img
                 alt=""
                 className={`aspect-[16/10] w-full object-cover ${project.imageClassName ?? ''}`}
+                decoding="async"
                 loading="lazy"
                 src={project.image}
               />
-            </motion.div>
-          </motion.article>
+            </m.div>
+          </m.article>
         ))}
       </div>
     </AnimatedSection>

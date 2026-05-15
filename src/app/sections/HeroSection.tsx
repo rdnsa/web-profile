@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowDown, BriefcaseBusiness, MapPin } from 'lucide-react'
 import { ExternalLink } from '../../components/ExternalLink'
@@ -6,6 +6,7 @@ import { profile } from '../../data/profile'
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
+  const shouldReduceMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
@@ -20,10 +21,10 @@ export function HeroSection() {
       className="relative mx-auto grid min-h-0 w-full max-w-7xl items-start gap-8 px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10 lg:min-h-[calc(100svh-6rem)] lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.72fr)_minmax(0,0.9fr)] lg:items-center lg:gap-10 lg:px-8 lg:py-14"
       id="home"
     >
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -22 }}
         animate={{ opacity: 1, x: 0 }}
-        style={{ y: copyY }}
+        style={{ y: shouldReduceMotion ? 0 : copyY }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="text-base font-medium text-[#a78bfa] sm:text-lg">Hello, I&apos;m</p>
@@ -49,26 +50,30 @@ export function HeroSection() {
             )
           })}
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         className="relative order-first mx-auto flex w-full max-w-[320px] justify-center sm:max-w-[360px] lg:order-none"
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1 }}
-        style={{ y: portraitY }}
+        style={{ y: shouldReduceMotion ? 0 : portraitY }}
         transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <motion.div
+        <m.div
           className="relative w-full"
-          animate={{ y: [0, -8, 0] }}
+          animate={shouldReduceMotion ? undefined : { y: [0, -8, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <motion.div
+          <m.div
             className="absolute inset-x-8 bottom-4 top-10 rounded-full bg-[#3c246f]/65 blur-3xl"
-            animate={{ opacity: [0.55, 0.9, 0.55], scale: [1, 1.08, 1] }}
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : { opacity: [0.55, 0.9, 0.55], scale: [1, 1.08, 1] }
+            }
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
           />
-          <motion.div
+          <m.div
             className="relative aspect-[3/4] w-full overflow-hidden rounded-[28px] border border-white/10 bg-[#0b0b14]"
             whileHover={{ y: -4, scale: 1.01 }}
             transition={{ type: 'spring', stiffness: 220, damping: 20 }}
@@ -76,17 +81,19 @@ export function HeroSection() {
             <img
               alt={profile.fullName}
               className="h-full w-full object-cover object-top"
+              decoding="async"
+              fetchPriority="high"
               src={profile.avatar}
             />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         className="grid gap-5"
         initial={{ opacity: 0, x: 22 }}
         animate={{ opacity: 1, x: 0 }}
-        style={{ y: detailY }}
+        style={{ y: shouldReduceMotion ? 0 : detailY }}
         transition={{ duration: 0.7, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
       >
         <div>
@@ -102,7 +109,7 @@ export function HeroSection() {
 
         <div className="grid gap-2 sm:gap-3">
           {profile.focus.map((item, index) => (
-            <motion.div
+            <m.div
               className="flex items-center justify-between border-b border-white/10 py-3 text-sm text-slate-300"
               key={item}
               initial={{ opacity: 0, x: 14 }}
@@ -111,7 +118,7 @@ export function HeroSection() {
             >
               <span>{item}</span>
               <span className="size-2 rounded-full bg-[#f0c987]" />
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
@@ -133,7 +140,7 @@ export function HeroSection() {
           More about me
           <ArrowDown className="size-4 animate-bounce" />
         </a>
-      </motion.div>
+      </m.div>
     </section>
   )
 }

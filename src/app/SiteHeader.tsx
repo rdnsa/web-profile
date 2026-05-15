@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { profile } from '../data/profile'
 
 const navItems = [
@@ -65,6 +65,7 @@ export function SiteHeader() {
 
             return (
               <a
+                aria-current={isActive ? 'page' : undefined}
                 className={`relative rounded-[18px] px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#0b0b14] ${
                   isActive
                     ? 'text-white'
@@ -74,13 +75,12 @@ export function SiteHeader() {
                 key={item.href}
                 onClick={() => setActiveId(item.href.slice(1))}
               >
-                {isActive ? (
-                  <motion.span
-                    className="absolute inset-x-4 bottom-2 h-0.5 rounded-full bg-[#f0c987]"
-                    layoutId="desktop-nav-underline"
-                    transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-                  />
-                ) : null}
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-x-4 bottom-2 h-0.5 origin-left rounded-full bg-[#f0c987] transition duration-200 ${
+                    isActive ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                  }`}
+                />
                 {item.label}
               </a>
             )
@@ -107,7 +107,7 @@ export function SiteHeader() {
       </nav>
 
       {isOpen ? (
-        <motion.div
+        <m.div
           className="mx-auto mt-2 max-w-7xl rounded-[22px] border border-white/10 bg-[#0b0b14]/95 p-3 shadow-2xl shadow-black/30 backdrop-blur-2xl lg:hidden"
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,6 +119,7 @@ export function SiteHeader() {
 
               return (
                 <a
+                  aria-current={isActive ? 'page' : undefined}
                   className={`relative rounded-[18px] px-3 py-3 text-sm font-semibold transition ${
                     isActive
                       ? 'text-white'
@@ -131,19 +132,18 @@ export function SiteHeader() {
                     setIsOpen(false)
                   }}
                 >
-                  {isActive ? (
-                    <motion.span
-                      className="absolute inset-x-3 bottom-2 h-0.5 rounded-full bg-[#f0c987]"
-                      layoutId="mobile-nav-underline"
-                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-                    />
-                  ) : null}
+                  <span
+                    aria-hidden="true"
+                    className={`absolute inset-x-3 bottom-2 h-0.5 origin-left rounded-full bg-[#f0c987] transition duration-200 ${
+                      isActive ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                    }`}
+                  />
                   {item.label}
                 </a>
               )
             })}
           </div>
-        </motion.div>
+        </m.div>
       ) : null}
     </header>
   )

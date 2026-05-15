@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 export function PageTransition() {
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-[70] origin-top bg-[#0b0b14]"
       initial={{ scaleY: 1 }}

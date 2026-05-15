@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { AnimatedSection } from '../../components/AnimatedSection'
 
 const visualCards = [
@@ -34,7 +34,7 @@ export function VisualGallerySection() {
     >
       <div className="grid gap-5 md:grid-cols-2">
         {visualCards.map((card, index) => (
-          <motion.article
+          <m.article
             className="group overflow-hidden rounded-[28px] border border-[#172033]/10 bg-white/80 shadow-[0_20px_60px_rgba(20,42,77,0.08)]"
             key={card.title}
             initial={{ opacity: 0, y: 24 }}
@@ -54,7 +54,7 @@ export function VisualGallerySection() {
               <h3 className="text-xl font-semibold text-[#172033]">{card.title}</h3>
               <p className="mt-2 text-sm leading-6 text-slate-600">{card.caption}</p>
             </div>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </AnimatedSection>

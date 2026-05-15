@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring } from 'framer-motion'
+import { useInteractionPreferences } from '../hooks/useInteractionPreferences'
 
 export function DesktopCursor() {
   const [isVisible, setIsVisible] = useState(false)
   const [isInteractive, setIsInteractive] = useState(false)
+  const { hasFinePointer, shouldReduceMotion } = useInteractionPreferences()
   const xTarget = useMotionValue(-120)
   const yTarget = useMotionValue(-120)
   const x = useSpring(xTarget, { stiffness: 420, damping: 32, mass: 0.4 })
   const y = useSpring(yTarget, { stiffness: 420, damping: 32, mass: 0.4 })
+  const isEnabled = hasFinePointer && !shouldReduceMotion
 
   useEffect(() => {
-    const finePointer = window.matchMedia('(pointer: fine)').matches
-
-    if (!finePointer) {
+    if (!isEnabled) {
       return undefined
     }
 
@@ -44,17 +45,21 @@ export function DesktopCursor() {
       document.removeEventListener('mouseover', handleMouseOver)
       document.removeEventListener('mouseout', handleMouseOut)
     }
-  }, [xTarget, yTarget])
+  }, [isEnabled, xTarget, yTarget])
+
+  if (!isEnabled) {
+    return null
+  }
 
   return (
     <>
-      <motion.div
+      <m.div
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[65] hidden size-2 rounded-full bg-[#f0c987] mix-blend-screen lg:block"
         animate={{ opacity: isVisible ? 1 : 0 }}
         style={{ x, y, translateX: '-50%', translateY: '-50%' }}
       />
-      <motion.div
+      <m.div
         aria-hidden="true"
         className="pointer-events-none fixed left-0 top-0 z-[64] hidden rounded-full border border-[#a78bfa]/70 lg:block"
         animate={{

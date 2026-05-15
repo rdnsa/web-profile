@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { m } from 'framer-motion'
 import { Check, Copy, Send } from 'lucide-react'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import { ExternalLink } from '../../components/ExternalLink'
@@ -7,11 +7,25 @@ import { profile } from '../../data/profile'
 
 export function ContactSection() {
   const [copied, setCopied] = useState(false)
+  const resetTimerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   const handleCopyEmail = async () => {
     await navigator.clipboard.writeText(profile.email)
     setCopied(true)
-    window.setTimeout(() => setCopied(false), 1600)
+
+    if (resetTimerRef.current) {
+      window.clearTimeout(resetTimerRef.current)
+    }
+
+    resetTimerRef.current = window.setTimeout(() => setCopied(false), 1600)
   }
 
   return (
@@ -23,7 +37,7 @@ export function ContactSection() {
       title="Let&apos;s move the next digital project with sharper planning and calmer execution."
     >
       <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)]">
-        <motion.div
+        <m.div
           className="rounded-[28px] border border-white/10 bg-white/[0.04] p-4 sm:p-7"
           initial={{ opacity: 0, y: 22 }}
           viewport={{ once: true, amount: 0.18, margin: '-40px' }}
@@ -45,14 +59,14 @@ export function ContactSection() {
             {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
             {copied ? 'Email copied' : 'Copy email'}
           </button>
-        </motion.div>
+        </m.div>
 
         <div className="grid gap-3">
           {profile.contacts.map((contact, index) => {
             const Icon = contact.icon
 
             return (
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 16 }}
                 key={contact.href}
                 transition={{ duration: 0.42, delay: index * 0.08 }}
@@ -73,7 +87,7 @@ export function ContactSection() {
                     </span>
                   </span>
                 </ExternalLink>
-              </motion.div>
+              </m.div>
             )
           })}
 

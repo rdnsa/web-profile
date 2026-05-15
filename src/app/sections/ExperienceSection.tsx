@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { CalendarDays, MapPin } from 'lucide-react'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import { experiences } from '../../data/profile'
@@ -13,7 +13,7 @@ export function ExperienceSection() {
     >
       <div className="grid gap-4">
         {experiences.map((experience, index) => (
-          <motion.article
+          <m.article
             className="grid gap-5 rounded-[24px] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid-cols-[minmax(240px,0.7fr)_minmax(0,1.3fr)] lg:p-6"
             initial={{ opacity: 0, y: 22 }}
             key={experience.company}
@@ -54,7 +54,7 @@ export function ExperienceSection() {
                 ))}
               </ul>
             </div>
-          </motion.article>
+          </m.article>
         ))}
       </div>
     </AnimatedSection>

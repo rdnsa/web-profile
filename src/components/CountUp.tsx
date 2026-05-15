@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { useInView, useReducedMotion } from 'framer-motion'
 
 type CountUpProps = {
   target: number
@@ -25,9 +25,15 @@ export function CountUp({
     margin: '0px 0px 120px 0px',
   })
   const [value, setValue] = useState(0)
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     if (!isInView) {
+      return undefined
+    }
+
+    if (shouldReduceMotion) {
+      setValue(target)
       return undefined
     }
 
@@ -48,7 +54,7 @@ export function CountUp({
     frameId = requestAnimationFrame(tick)
 
     return () => cancelAnimationFrame(frameId)
-  }, [decimals, duration, isInView, target])
+  }, [duration, isInView, shouldReduceMotion, target])
 
   return (
     <span className={className} ref={ref}>
