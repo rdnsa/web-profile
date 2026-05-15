@@ -1,4 +1,6 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { DesktopCursor } from './DesktopCursor'
+import { PageTransition } from './PageTransition'
 import { ContactSection } from './sections/ContactSection'
 import { ExperienceSection } from './sections/ExperienceSection'
 import { HeroSection } from './sections/HeroSection'
@@ -18,12 +20,14 @@ export function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#07070d] text-[#f5f2fb]">
+      <PageTransition />
       <motion.div
         className="fixed left-0 top-0 z-[60] h-1 origin-left bg-[#a78bfa]"
         style={{ scaleX, width: '100%' }}
       />
+      <DesktopCursor />
       <SiteHeader />
-      <main className="pt-24">
+      <main className="pt-20 sm:pt-24">
         <HeroSection />
         <ProfileSection />
         <ProjectsSection />

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { AnimatedSection } from '../../components/AnimatedSection'
 import { capabilities } from '../../data/profile'
 
@@ -9,14 +10,19 @@ export function SkillsSection() {
       subtitle="The work is rarely only strategy or only engineering. I tend to sit in the overlap."
       title="What I bring to a project team."
     >
-      <div className="grid gap-4 md:grid-cols-3">
-        {capabilities.map((capability) => {
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((capability, index) => {
           const Icon = capability.icon
 
           return (
-            <section
+            <motion.section
               className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5"
+              initial={{ opacity: 0, y: 22 }}
               key={capability.title}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              viewport={{ once: true, amount: 0.2, margin: '-40px' }}
+              whileHover={{ y: -6, borderColor: 'rgba(167, 139, 250, 0.28)' }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               <Icon className="size-6 text-[#f0c987]" />
               <h3 className="mt-5 text-xl font-semibold text-white">
@@ -35,7 +41,7 @@ export function SkillsSection() {
                   </span>
                 ))}
               </div>
-            </section>
+            </motion.section>
           )
         })}
       </div>

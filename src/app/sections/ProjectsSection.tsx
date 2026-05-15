@@ -11,15 +11,20 @@ export function ProjectsSection() {
       subtitle="Three live projects across financial news, property, and luxury commerce."
       title="Selected work that shows how I manage digital projects."
     >
-      <div className="grid gap-8">
+      <div className="grid gap-6 sm:gap-8">
         {projects.map((project, index) => (
           <motion.article
-            className="grid gap-5 border-b border-white/10 pb-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] lg:items-center"
-            initial={{ opacity: 0, y: 24 }}
+            className="grid gap-5 rounded-[24px] border border-white/10 bg-white/[0.03] p-4 sm:p-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] lg:items-center lg:p-6"
+            initial="hidden"
             key={project.href}
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0 },
+            }}
             transition={{ duration: 0.55, delay: index * 0.08 }}
             viewport={{ once: true, margin: '-120px' }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -6, borderColor: 'rgba(240, 201, 135, 0.28)' }}
+            whileInView="visible"
           >
             <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f0c987]">
@@ -27,7 +32,7 @@ export function ProjectsSection() {
               </p>
               <div className="mt-4 flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-3xl font-semibold text-white">{project.title}</h3>
+                  <h3 className="text-2xl font-semibold text-white sm:text-3xl">{project.title}</h3>
                   <p className="mt-2 text-sm text-slate-400">{project.role}</p>
                 </div>
                 <a
@@ -41,7 +46,7 @@ export function ProjectsSection() {
                 </a>
               </div>
 
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
                 {project.summary}
               </p>
 
@@ -66,10 +71,25 @@ export function ProjectsSection() {
               </div>
             </div>
 
-            <div
+            <motion.div
               className={`overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] ${
                 index % 2 === 1 ? 'lg:order-1' : ''
               }`}
+              variants={{
+                hidden: { opacity: 0, y: 24, clipPath: 'inset(0 0 100% 0 round 24px)' },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  clipPath: 'inset(0 0 0% 0 round 24px)',
+                },
+              }}
+              whileHover={{ scale: 1.01 }}
+              transition={{
+                clipPath: { duration: 0.8, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] },
+                opacity: { duration: 0.5, delay: index * 0.08 },
+                y: { duration: 0.5, delay: index * 0.08 },
+                scale: { type: 'spring', stiffness: 220, damping: 22 },
+              }}
             >
               <img
                 alt=""
@@ -77,7 +97,7 @@ export function ProjectsSection() {
                 loading="lazy"
                 src={project.image}
               />
-            </div>
+            </motion.div>
           </motion.article>
         ))}
       </div>

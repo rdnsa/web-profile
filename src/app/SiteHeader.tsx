@@ -43,8 +43,8 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
-      <nav className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between rounded-[22px] border border-white/10 bg-[#0b0b14]/82 px-4 shadow-[0_22px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl sm:px-5">
+    <header className="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4">
+      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between rounded-[20px] border border-white/10 bg-[#0b0b14]/82 px-4 shadow-[0_22px_60px_rgba(0,0,0,0.28)] backdrop-blur-2xl sm:h-[72px] sm:rounded-[22px] sm:px-5">
         <a
           className="min-w-0 text-sm font-semibold text-white"
           href="#home"
@@ -53,7 +53,7 @@ export function SiteHeader() {
             setIsOpen(false)
           }}
         >
-          <span className="block truncate text-base">{profile.name}</span>
+          <span className="block truncate text-sm sm:text-base">{profile.name}</span>
           <span className="hidden truncate text-xs text-slate-400 sm:block">
             {profile.role}
           </span>
@@ -65,15 +65,22 @@ export function SiteHeader() {
 
             return (
               <a
-                className={`rounded-[18px] px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#0b0b14] ${
+                className={`relative rounded-[18px] px-4 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#a78bfa] focus:ring-offset-2 focus:ring-offset-[#0b0b14] ${
                   isActive
-                    ? 'bg-white text-[#090910]'
+                    ? 'text-white'
                     : 'text-slate-300 hover:bg-white/8 hover:text-white'
                 }`}
                 href={item.href}
                 key={item.href}
                 onClick={() => setActiveId(item.href.slice(1))}
               >
+                {isActive ? (
+                  <motion.span
+                    className="absolute inset-x-4 bottom-2 h-0.5 rounded-full bg-[#f0c987]"
+                    layoutId="desktop-nav-underline"
+                    transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                  />
+                ) : null}
                 {item.label}
               </a>
             )
@@ -112,9 +119,9 @@ export function SiteHeader() {
 
               return (
                 <a
-                  className={`rounded-[18px] px-3 py-3 text-sm font-semibold transition ${
+                  className={`relative rounded-[18px] px-3 py-3 text-sm font-semibold transition ${
                     isActive
-                      ? 'bg-white text-[#090910]'
+                      ? 'text-white'
                       : 'text-slate-100 hover:bg-white/8'
                   }`}
                   href={item.href}
@@ -124,6 +131,13 @@ export function SiteHeader() {
                     setIsOpen(false)
                   }}
                 >
+                  {isActive ? (
+                    <motion.span
+                      className="absolute inset-x-3 bottom-2 h-0.5 rounded-full bg-[#f0c987]"
+                      layoutId="mobile-nav-underline"
+                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                    />
+                  ) : null}
                   {item.label}
                 </a>
               )

@@ -45,6 +45,11 @@ body::before {
     linear-gradient(250deg, rgba(240, 201, 135, 0.08), transparent 28%);
 }
 
+body.desktop-cursor,
+body.desktop-cursor * {
+  cursor: none;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
